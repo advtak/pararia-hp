@@ -49,6 +49,8 @@ gh api -X POST repos/advtak/pararia-hp/pages -f "source[branch]=main" -f "source
 現在 `pararia.jp` は Wix のネームサーバー（`ns0.wixdns.net` / `ns1.wixdns.net`）を向いている。
 **Wix のプランを解約する前に、この順番でやること。**
 
+0. **`robots.txt` を削除する。** 仮URLを検索避けするために置いてある。
+   消し忘れると、本番ドメインに切り替えても検索エンジンに載らない
 1. リポジトリ直下に `CNAME` ファイルを作り、中身を `www.pararia.jp` の1行にして push
    （※ テスト中は作らない。作ると `advtak.github.io` の URL では見られなくなる）
 2. Wix のドメイン管理画面で DNS レコードを変更
