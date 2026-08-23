@@ -1,0 +1,337 @@
+@charset "UTF-8";
+/* =========================================================
+   PARARIA / 株式会社パラリア コーポレートサイト
+   現行サイト（Wix）のデザインを踏襲した静的スタイル
+   ブランドカラーはロゴ原本(pararia-yoko.png)から実測した値を正とする
+   ========================================================= */
+
+:root{
+  --teal:        #279489;  /* ロゴ本体のティール（主色） */
+  --teal-dark:   #1E7A71;  /* ホバー・フッター */
+  --mint:        #9AD4CC;  /* ロゴのスウッシュ */
+  --mint-line:   #C7E4E2;  /* 罫線・表ヘッダ */
+  --mint-bg:     #EEF7F6;  /* 淡い面 */
+  --navy:        #003A96;  /* 補助（法人向けの締め） */
+  --text:        #333333;
+  --sub:         #727272;
+  --line:        #E3E8E7;
+  --white:       #FFFFFF;
+
+  --serif: "Noto Serif JP", "Yu Mincho", "游明朝", "YuMincho", "Hiragino Mincho ProN", serif;
+  --sans:  "Noto Sans JP", "Yu Gothic", "游ゴシック", "YuGothic", "Hiragino Sans", "Meiryo", sans-serif;
+
+  --wrap: 1000px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:2;
+  color:var(--text);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:.04em;
+}
+
+img{ max-width:100%; height:auto; display:block; }
+a{ color:var(--teal); }
+
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 24px; }
+.narrow{ max-width:760px; }
+
+/* ---------------- ヘッダー ---------------- */
+.header{
+  position:sticky; top:0; z-index:100;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(140%) blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px; padding:14px 24px; max-width:1180px; margin:0 auto;
+}
+.brand{ display:block; flex:0 0 auto; }
+.brand img{ height:44px; width:auto; }
+
+.nav ul{
+  display:flex; flex-wrap:wrap; justify-content:flex-end;
+  gap:4px 22px; list-style:none; margin:0; padding:0;
+}
+.nav a{
+  display:inline-block; padding:4px 2px;
+  font-size:14px; line-height:1.6; letter-spacing:.08em;
+  color:var(--text); text-decoration:none; white-space:nowrap;
+  border-bottom:1px solid transparent;
+}
+.nav a:hover{ color:var(--teal); border-bottom-color:var(--teal); }
+.nav a[aria-current="page"]{ color:var(--teal); border-bottom-color:var(--teal); }
+
+/* ---------------- ヒーロー ---------------- */
+.hero{
+  background:var(--mint-bg);
+  border-bottom:1px solid var(--mint-line);
+  padding:76px 0 68px;
+  text-align:center;
+}
+.hero .statement{
+  font-family:var(--serif);
+  font-size:clamp(26px,4.2vw,42px);
+  line-height:1.75; font-weight:600; color:var(--teal-dark);
+  margin:0 0 26px; letter-spacing:.06em;
+}
+.hero .headline{
+  font-size:clamp(15px,2.1vw,19px);
+  font-weight:600; letter-spacing:.12em; color:var(--text);
+  margin:0 0 22px;
+}
+.hero p{ margin:0 auto 12px; max-width:720px; color:var(--sub); font-size:15px; }
+
+/* 下層ページの見出し帯 */
+.pagehead{
+  background:var(--mint-bg);
+  border-bottom:1px solid var(--mint-line);
+  padding:52px 0 46px; text-align:center;
+}
+.pagehead h1{
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(24px,3.4vw,34px); letter-spacing:.1em;
+  margin:0 0 10px; color:var(--teal-dark);
+}
+.pagehead p{ margin:0; color:var(--sub); font-size:14px; letter-spacing:.1em; }
+
+/* ---------------- セクション ---------------- */
+.section{ padding:82px 0; }
+.section.tint{ background:var(--mint-bg); }
+.section.tight{ padding:56px 0; }
+
+.section-title{
+  display:flex; align-items:center; gap:26px;
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(20px,2.8vw,27px); letter-spacing:.14em;
+  color:var(--text); margin:0 0 14px; text-align:center;
+}
+.section-title::before,
+.section-title::after{
+  content:""; flex:1 1 0; height:1px; background:var(--mint-line);
+}
+.section-sub{
+  text-align:center; color:var(--teal); font-size:14px;
+  letter-spacing:.16em; margin:0 0 40px;
+}
+.lead{ text-align:center; font-size:16px; margin:0 auto 40px; max-width:760px; }
+.lead strong{ color:var(--teal-dark); }
+
+/* ---------------- ボタン ---------------- */
+.btns{ display:flex; flex-wrap:wrap; gap:18px; justify-content:center; margin-top:44px; }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5em;
+  min-width:300px; padding:17px 34px;
+  background:var(--teal); color:#fff; text-decoration:none;
+  border:1px solid var(--teal); border-radius:999px;
+  font-size:16px; font-weight:600; letter-spacing:.1em; line-height:1.5;
+  transition:background .2s, color .2s, transform .2s;
+}
+.btn:hover{ background:var(--teal-dark); border-color:var(--teal-dark); transform:translateY(-1px); }
+.btn.ghost{ background:#fff; color:var(--teal-dark); }
+.btn.ghost:hover{ background:var(--teal); color:#fff; }
+.btn.sm{ min-width:200px; padding:12px 26px; font-size:14px; }
+
+/* ---------------- 2つの入口 ---------------- */
+.gates{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.gate{
+  display:flex; flex-direction:column;
+  background:#fff; border:1px solid var(--mint-line); border-radius:6px;
+  padding:38px 32px 32px; text-align:center;
+  color:var(--text); text-decoration:none;
+  transition:box-shadow .25s, transform .25s;
+}
+.gate,.gate *{ text-decoration:none; }
+.gate:hover{ box-shadow:0 10px 30px rgba(39,148,137,.13); transform:translateY(-2px); }
+.gate .tag{
+  display:inline-block; align-self:center;
+  background:var(--teal); color:#fff; border-radius:999px;
+  font-size:12px; letter-spacing:.16em; padding:5px 18px; margin-bottom:20px;
+}
+.gate h3{
+  font-family:var(--serif); font-size:21px; font-weight:600;
+  letter-spacing:.08em; margin:0 0 14px; line-height:1.7;
+}
+.gate p{ margin:0 0 26px; font-size:14.5px; color:var(--sub); text-align:left; }
+.gate .btn{ min-width:0; width:100%; margin-top:auto; }
+
+/* ---------------- カード（3列・4列） ---------------- */
+.cards{ display:grid; gap:26px; }
+.cards.c3{ grid-template-columns:repeat(3,1fr); }
+.cards.c4{ grid-template-columns:repeat(4,1fr); }
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:6px;
+  padding:32px 26px; text-align:center;
+}
+.card .num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:50%;
+  background:var(--mint); color:#fff; font-size:14px; font-weight:700;
+  margin-bottom:16px;
+}
+.card h3{
+  font-size:17px; font-weight:600; letter-spacing:.06em;
+  color:var(--teal-dark); margin:0 0 12px; line-height:1.7;
+}
+.card p{ margin:0; font-size:14.5px; color:var(--sub); text-align:left; }
+
+/* VALUES */
+.values{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--mint-line); }
+.value{ padding:38px 30px; text-align:center; border-right:1px solid var(--mint-line); background:#fff; }
+.value:last-child{ border-right:0; }
+.value .no{ font-family:var(--serif); font-size:13px; letter-spacing:.2em; color:var(--mint); display:block; margin-bottom:14px; }
+.value h3{ font-family:var(--serif); font-size:19px; font-weight:600; letter-spacing:.08em; margin:0 0 14px; color:var(--teal-dark); line-height:1.7; }
+.value p{ margin:0; font-size:14px; color:var(--sub); }
+
+/* ---------------- 写真帯 ---------------- */
+.photos{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.photos img{ width:100%; aspect-ratio:1/.92; object-fit:cover; border-radius:3px; }
+
+/* ---------------- 代表 ---------------- */
+.profile{ display:grid; grid-template-columns:340px 1fr; gap:52px; align-items:start; }
+.profile-photo img{ width:100%; border-radius:4px; }
+.profile-photo .cap{ margin-top:12px; text-align:center; font-size:13px; color:var(--sub); letter-spacing:.08em; }
+.profile-body h2{
+  font-family:var(--serif); font-size:26px; font-weight:600;
+  letter-spacing:.08em; margin:0 0 6px; line-height:1.6;
+}
+.profile-body .name{ font-size:15px; color:var(--sub); letter-spacing:.14em; margin:0 0 28px; }
+.profile-body .quote{
+  font-family:var(--serif); font-size:20px; color:var(--teal-dark);
+  border-left:3px solid var(--mint); padding-left:20px; margin:0 0 26px; line-height:1.9;
+}
+.profile-body p{ margin:0 0 20px; }
+
+/* ---------------- 定義リスト（会社概要） ---------------- */
+.deflist{ border-top:1px solid var(--line); background:#fff; }
+/* 淡い面のセクションに置いたときは、見出し列が背景と同化しないよう枠で締める */
+.section.tint .deflist{ border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+.deflist dl{ display:grid; grid-template-columns:200px 1fr; margin:0; border-bottom:1px solid var(--line); }
+.deflist dt{ padding:20px 16px; background:var(--mint-bg); font-weight:600; font-size:14.5px; letter-spacing:.1em; }
+.deflist dd{ padding:20px 20px; margin:0; font-size:15px; }
+
+/* ---------------- 表 ---------------- */
+.table-wrap{ overflow-x:auto; }
+table.price{
+  width:100%; border-collapse:collapse; margin:0 auto; background:#fff;
+  min-width:520px;
+}
+table.price th, table.price td{
+  border:1px solid var(--mint-line); padding:16px 14px;
+  text-align:center; font-size:15px; line-height:1.7;
+}
+table.price thead th{ background:var(--mint-line); font-weight:600; letter-spacing:.08em; }
+table.price tbody th{ background:var(--mint-bg); font-weight:600; width:26%; }
+table.price .fee{ font-size:18px; font-weight:700; color:var(--teal-dark); }
+.table-note{ text-align:center; font-size:13px; color:var(--sub); margin-top:16px; }
+
+/* ---------------- 流れ ---------------- */
+.flow{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+.flow .step{ background:#fff; border:1px solid var(--mint-line); border-radius:6px; padding:24px 16px; text-align:center; position:relative; }
+.flow .step .no{ display:block; font-family:var(--serif); color:var(--mint); font-size:13px; letter-spacing:.2em; margin-bottom:10px; }
+.flow .step h3{ font-size:15px; font-weight:600; margin:0 0 8px; color:var(--teal-dark); line-height:1.6; }
+.flow .step p{ margin:0; font-size:13px; color:var(--sub); }
+
+/* ---------------- FAQ ---------------- */
+.faq{ border-top:1px solid var(--line); }
+.faq details{ border-bottom:1px solid var(--line); }
+.faq summary{
+  cursor:pointer; list-style:none; padding:22px 44px 22px 40px;
+  font-size:16px; font-weight:600; position:relative; line-height:1.8;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::before{
+  content:"Q."; position:absolute; left:0; top:22px;
+  color:var(--teal); font-family:var(--serif); font-weight:700;
+}
+.faq summary::after{
+  content:""; position:absolute; right:8px; top:32px;
+  width:9px; height:9px; border-right:1.5px solid var(--teal); border-bottom:1.5px solid var(--teal);
+  transform:rotate(45deg); transition:transform .2s;
+}
+.faq details[open] summary::after{ transform:rotate(-135deg); top:36px; }
+.faq .a{ padding:0 44px 24px 40px; position:relative; color:var(--sub); font-size:15px; }
+.faq .a::before{
+  content:"A."; position:absolute; left:0; top:0;
+  color:var(--mint); font-family:var(--serif); font-weight:700;
+}
+
+/* ---------------- 実績数値 ---------------- */
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--mint-line); background:#fff; }
+.stat{ padding:32px 18px; text-align:center; border-right:1px solid var(--mint-line); }
+.stat:last-child{ border-right:0; }
+.stat .v{ font-family:var(--serif); font-size:30px; font-weight:600; color:var(--teal-dark); line-height:1.3; display:block; }
+.stat .v small{ font-size:15px; margin-left:2px; }
+.stat .k{ font-size:13px; color:var(--sub); letter-spacing:.1em; margin-top:8px; display:block; }
+
+/* 未確定の値であることを画面上で明示する（そのまま公開させないための印） */
+.todo{
+  background:#FFF4CC; color:#8A6A00; border:1px dashed #E0B500;
+  border-radius:3px; padding:1px 8px; font-size:13px; font-weight:600;
+  font-family:var(--sans); letter-spacing:.04em; white-space:nowrap;
+}
+
+/* ---------------- お問い合わせ ---------------- */
+.contact-box{
+  border:1px solid var(--mint-line); border-radius:6px; background:#fff;
+  padding:44px 36px; text-align:center;
+}
+.contact-list{ list-style:none; margin:0 0 8px; padding:0; }
+.contact-list li{ padding:18px 0; border-bottom:1px solid var(--line); }
+.contact-list li:last-child{ border-bottom:0; }
+.contact-list .k{ display:block; font-size:12px; letter-spacing:.2em; color:var(--teal); margin-bottom:4px; }
+.contact-list .v{ font-family:var(--serif); font-size:22px; letter-spacing:.06em; }
+.contact-list .v a{ text-decoration:none; color:var(--text); }
+.contact-list .v a:hover{ color:var(--teal); }
+
+/* ---------------- フッター ---------------- */
+.footer{ background:var(--mint-bg); border-top:1px solid var(--mint-line); padding:56px 0 30px; text-align:center; }
+.footer .flogo{ height:52px; width:auto; margin:0 auto 22px; }
+.footer nav ul{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px 26px; list-style:none; margin:0 0 26px; padding:0; }
+.footer nav a{ font-size:13.5px; color:var(--text); text-decoration:none; letter-spacing:.08em; }
+.footer nav a:hover{ color:var(--teal); }
+.footer .meta{ font-size:13px; color:var(--sub); margin:0 0 6px; }
+.footer .copy{ font-size:12px; color:var(--sub); letter-spacing:.1em; margin-top:22px; }
+
+/* ---------------- レスポンシブ ---------------- */
+@media (max-width:900px){
+  .gates{ grid-template-columns:1fr; }
+  .cards.c3,.cards.c4{ grid-template-columns:repeat(2,1fr); }
+  .values{ grid-template-columns:1fr; }
+  .value{ border-right:0; border-bottom:1px solid var(--mint-line); }
+  .value:last-child{ border-bottom:0; }
+  .profile{ grid-template-columns:1fr; gap:34px; }
+  .profile-photo{ max-width:300px; margin:0 auto; }
+  .flow{ grid-template-columns:repeat(2,1fr); }
+  .stats{ grid-template-columns:repeat(2,1fr); }
+  .stat:nth-child(2n){ border-right:0; }
+  .stat:nth-child(-n+2){ border-bottom:1px solid var(--mint-line); }
+  .deflist dl{ grid-template-columns:1fr; }
+  .deflist dt{ padding:14px 16px; }
+  .deflist dd{ padding:14px 16px 20px; }
+}
+
+@media (max-width:640px){
+  body{ font-size:15px; line-height:1.95; }
+  .header-inner{ flex-direction:column; gap:12px; padding:12px 16px; }
+  .brand img{ height:38px; }
+  .nav ul{ justify-content:center; gap:2px 16px; }
+  .nav a{ font-size:12.5px; letter-spacing:.04em; }
+  .section{ padding:56px 0; }
+  .section-title{ gap:14px; }
+  .cards.c3,.cards.c4{ grid-template-columns:1fr; }
+  .photos{ grid-template-columns:1fr; }
+  .flow{ grid-template-columns:1fr; }
+  .btn{ min-width:0; width:100%; }
+  .contact-box{ padding:32px 20px; }
+  .hero{ padding:52px 0 46px; }
+}
