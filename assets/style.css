@@ -72,35 +72,33 @@ a{ color:var(--teal); }
 .nav a[aria-current="page"]{ color:var(--teal); border-bottom-color:var(--teal); }
 
 /* ---------------- ヒーロー ----------------
-   写真を全幅で敷き、白のグラデーションを重ねて文字を載せる。
-   明るい室内写真なので暗幕はかけない（部屋の印象を殺さないため）。 */
+   写真を使わず、ブランドカラーのベタ面に白抜きロゴを置く。
+   ・閉校した校舎の写真を看板にしなくて済む
+   ・代表の顔を出さないので「個人商店」に見えない
+   会社として名乗るためだけの面なので、要素はロゴ・一行・補足の3つに絞る。 */
 .hero{
-  position:relative;
-  border-bottom:1px solid var(--mint-line);
-  background:var(--mint-bg) url("img/hero.jpg") center 42% / cover no-repeat;
-  min-height:clamp(420px,54vw,560px);
-  display:flex; align-items:center;
+  background:var(--teal);
+  padding:78px 0 74px;
+  text-align:center;
 }
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(100deg,
-    rgba(255,255,255,.96) 0%,
-    rgba(255,255,255,.92) 38%,
-    rgba(255,255,255,.62) 62%,
-    rgba(255,255,255,.30) 100%);
+.hero .biglogo{
+  height:clamp(56px,7.4vw,92px); width:auto;
+  margin:0 auto 32px;
 }
-.hero .wrap{ position:relative; padding-top:64px; padding-bottom:64px; }
-.hero .eyebrow{
-  font-size:13px; letter-spacing:.22em; color:var(--teal);
-  margin:0 0 18px; font-weight:600;
+.hero .rule{
+  width:56px; height:1px; background:rgba(255,255,255,.45);
+  margin:0 auto 30px;
 }
 .hero .headline{
   font-family:var(--serif);
-  font-size:clamp(25px,4vw,40px);
-  line-height:1.7; font-weight:600; color:var(--teal-dark);
-  margin:0 0 26px; letter-spacing:.05em;
+  font-size:clamp(21px,3.5vw,34px);
+  line-height:1.7; font-weight:600; color:#fff;
+  margin:0 0 24px; letter-spacing:.06em;
 }
-.hero p{ margin:0 0 12px; max-width:600px; color:var(--text); font-size:15.5px; }
+.hero p{
+  margin:0 auto 10px; max-width:660px;
+  color:rgba(255,255,255,.93); font-size:15.5px;
+}
 .hero p:last-child{ margin-bottom:0; }
 
 /* パラリアとは の冒頭に降ろしたステートメント */
@@ -377,9 +375,7 @@ table.rec td:nth-child(4){ width:48%; }
   .flow{ grid-template-columns:1fr; }
   .btn{ min-width:0; width:100%; }
   .contact-box{ padding:32px 20px; }
-  /* 狭い画面では写真の上に文字を重ねず、写真を下に敷いて全面を白く伏せる */
-  .hero{ min-height:0; background-position:center 55%; }
-  .hero::before{ background:rgba(255,255,255,.93); }
-  .hero .wrap{ padding-top:48px; padding-bottom:48px; }
-  .hero p{ max-width:none; }
+  .hero{ padding:54px 0 50px; }
+  .hero .biglogo{ margin-bottom:26px; }
+  .hero .rule{ margin-bottom:24px; }
 }
