@@ -236,6 +236,8 @@ a{ color:var(--teal); }
 /* 淡い面のセクションに置いたときは、見出し列が背景と同化しないよう枠で締める */
 .section.tint .deflist{ border:1px solid var(--line); border-radius:4px; overflow:hidden; }
 .deflist dl{ display:grid; grid-template-columns:200px 1fr; margin:0; border-bottom:1px solid var(--line); }
+/* 見出し語が長い一覧（業種名など）は見出し列を広げて折り返させない */
+.deflist.wide dl{ grid-template-columns:230px 1fr; }
 .deflist dt{ padding:20px 16px; background:var(--mint-bg); font-weight:600; font-size:14.5px; letter-spacing:.1em; }
 .deflist dd{ padding:20px 20px; margin:0; font-size:15px; }
 
