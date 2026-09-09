@@ -1,20 +1,37 @@
 # 株式会社パラリア コーポレートサイト
 
-Wix から移行するための静的サイト（HTML/CSS のみ・JavaScript なし）。
-GitHub Pages で無料公開する前提で作ってある。
+Wix から移行するための静的サイト。GitHub Pages で無料公開する前提で作ってある。
+**JavaScript はフォーム2ページの送信完了表示にだけ使っている**（各10行）。他は HTML/CSS のみ。
 
 ## 構成
 
 | ファイル | 内容 |
 |---|---|
-| `index.html` | トップ（Statement・2つの入口・VMV・VALUES・代表・実績） |
-| `corporate.html` | 法人の方へ（選ばれる理由・提供サービス・相談の流れ） |
+| `index.html` | トップ（ヒーロー・2つの入口・パラリアとは・実践と研究・実績・代表・問い合わせ2窓口） |
+| `corporate.html` | 塾の運営支援（塾の内側から・塾の外側から・研究の立場から） |
 | `online.html` | オンライン個別指導（代表直轄・特徴・料金・流れ・FAQ） |
-| `profile.html` | 代表紹介（経歴・現在の活動・考え方） |
-| `company.html` | 会社概要（MISSION/VISION/VALUES・事業内容・会社情報） |
-| `contact.html` | お問い合わせ（LINE／メール／電話・2つの窓口） |
+| `profile.html` | 代表紹介（本文・実績・考え方） |
+| `company.html` | 会社概要（MISSION/VISION/VALUES・事業内容・研究活動・発信・地域と業界での活動・会社情報） |
+| `contact.html` | お問い合わせ（2つの窓口へ振り分け） |
+| `form-online.html` | 個別指導の問い合わせフォーム |
+| `form-corporate.html` | 塾・法人・メディア向けの問い合わせフォーム |
 | `assets/style.css` | 全ページ共通のスタイル。**デザインの変更はここ1箇所** |
-| `assets/img/` | ロゴ・代表写真・教室写真 |
+| `assets/img/` | ロゴ・代表写真・教室写真・研究の図 |
+
+## お問い合わせフォームの仕組み
+
+**見た目は自前HTML、受け皿だけ Google フォーム。** Google フォームを埋め込むと
+テーマ色もヘッダーも変えられず（Forms API が未対応）、そこだけ別サイトの顔になるため。
+
+- 送信は `<form action="…/formResponse" target="post-target">` で隠し iframe へ POST。
+  ページは遷移せず、完了表示は自前で出す
+- 各入力の `name` は `entry.〇〇`。**この番号はフォームごとに固定** なので、
+  フォームの質問を作り直したら番号も変わる。変えたら HTML 側も直すこと
+- 回答の置き場所（フォームID）
+  - 個別指導 `1Iss_XtswJPppDGVKEjocCqXOcIBpcTWSGzGhSuS_HTc`
+  - 塾・法人 `1UQG1zRxqAur8lPYKt_5LoK1XTAvZRIxuDvdau99EsnA`
+- 作成に使ったスクリプトの考え方は `tools/gauth` の `forms()` 経由。
+  再作成が必要なら Forms API のスコープ付きトークン（`gauth.py forms`）が要る
 
 ## ブランドカラー
 

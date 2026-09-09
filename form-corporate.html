@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>塾の運営に関するご相談｜株式会社パラリア</title>
+<meta name="description" content="株式会社パラリアへの、塾の運営に関するご相談フォーム。運営支援、講師育成、業務の見直し、ツールの開発、取材・執筆のご依頼を受け付けています。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><img src="assets/img/logo.png" alt="PARARIA Parallel Reality"></a>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="corporate.html">塾の運営支援</a></li>
+        <li><a href="online.html">オンライン個別指導</a></li>
+        <li><a href="profile.html">代表紹介</a></li>
+        <li><a href="company.html">会社概要</a></li>
+        <li><a href="contact.html" aria-current="page">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="pagehead">
+    <h1>塾の運営に関するご相談</h1>
+    <p>CONTACT</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow">
+
+      <div id="form-area">
+        <p class="lead">
+          運営支援、講師育成、業務の見直し、ツールの開発。<br>
+          取材・執筆のご依頼もこちらから承ります。
+        </p>
+
+        <form class="form" id="contact-form" method="POST"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSfcZODYGVYHPk5nKq-cwunpxSw08tUXImNvTF3wM3qoVYL-gA/formResponse"
+              target="post-target">
+
+          <div class="form-row">
+            <label for="f-org">会社名・塾名<span class="req">必須</span></label>
+            <input type="text" id="f-org" name="entry.2023496866" required>
+          </div>
+
+          <div class="form-row">
+            <label for="f-name">お名前<span class="req">必須</span></label>
+            <input type="text" id="f-name" name="entry.505293673" required>
+          </div>
+
+          <div class="form-row">
+            <label for="f-mail">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="f-mail" name="entry.2002690096" required>
+            <span class="hint">こちらのアドレスにご返信します。</span>
+          </div>
+
+          <div class="form-row">
+            <label for="f-tel">電話番号<span class="opt">任意</span></label>
+            <input type="tel" id="f-tel" name="entry.1046626291">
+          </div>
+
+          <div class="form-row">
+            <label for="f-body">ご相談の内容<span class="req">必須</span></label>
+            <textarea id="f-body" name="entry.1327349564" required></textarea>
+            <span class="hint">いま起きている状況を、そのままお書きください。整理されていなくて構いません。</span>
+          </div>
+
+          <div class="send">
+            <button type="submit" class="btn">送信する</button>
+            <p class="note">
+              いただいた内容は、ご相談への対応以外には使いません。
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-done" id="done" hidden>
+        <h3>送信しました</h3>
+        <p>お問い合わせありがとうございます。</p>
+        <p>内容を確認のうえ、ご記入いただいたメールアドレスにご返信します。</p>
+        <div class="btns" style="margin-top:34px">
+          <a class="btn ghost" href="corporate.html">これまでの仕事を見る</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- 送信の受け皿。ページを移動させずに Google フォームへ POST するために置いている -->
+<iframe name="post-target" title="送信処理" style="display:none"></iframe>
+
+<footer class="footer">
+  <div class="wrap">
+    <img class="flogo" src="assets/img/logo.png" alt="PARARIA">
+    <nav>
+      <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="corporate.html">塾の運営支援</a></li>
+        <li><a href="online.html">オンライン個別指導</a></li>
+        <li><a href="profile.html">代表紹介</a></li>
+        <li><a href="company.html">会社概要</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <p class="meta">株式会社パラリア</p>
+    <p class="meta">〒150-0044　東京都渋谷区円山町5-3　玉川屋ビル8F</p>
+    <p class="copy">&copy; PARARIA Inc.</p>
+  </div>
+</footer>
+
+<script>
+// 送信は隠しiframe宛てなので画面は動かない。完了表示はこちらで出す。
+document.getElementById('contact-form').addEventListener('submit', function () {
+  var form = document.getElementById('form-area');
+  var done = document.getElementById('done');
+  setTimeout(function () {
+    form.hidden = true;
+    done.hidden = false;
+    window.scrollTo(0, 0);
+  }, 600);
+});
+</script>
+
+</body>
+</html>
