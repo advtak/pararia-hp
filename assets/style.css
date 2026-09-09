@@ -93,7 +93,12 @@ a{ color:var(--teal); }
   font-family:var(--serif);
   font-size:clamp(21px,3.5vw,34px);
   line-height:1.7; font-weight:600; color:#fff;
-  margin:0 0 24px; letter-spacing:.06em;
+  letter-spacing:.06em;
+  /* 下の .hero p の max-width:660px がこの見出しにも効くため、
+     margin を 0 にすると 660px の箱ごと左へ寄る。auto と max-width 解除で中央に戻す */
+  max-width:none; margin:0 auto 24px;
+  /* 末尾の句点と字送りの分だけ右に余白が出て、中央揃えでも左寄りに見える。その半分を戻す */
+  text-indent:.28em;
 }
 .hero p{
   margin:0 auto 10px; max-width:660px;
@@ -273,6 +278,13 @@ a{ color:var(--teal); }
   font-size:14px; font-weight:600; color:var(--teal-dark); letter-spacing:.1em;
 }
 .reclist dd{ margin:0; font-size:15px; }
+
+/* 実績リストの中を性質で割る小見出し（主催／登壇／委員 など） */
+.sub-head{
+  font-size:12.5px; font-weight:600; letter-spacing:.18em; color:var(--teal);
+  margin:40px 0 6px;
+}
+.sub-head:first-child{ margin-top:0; }
 
 /* ---------------- 表 ---------------- */
 .table-wrap{ overflow-x:auto; }
