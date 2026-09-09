@@ -294,6 +294,33 @@ a{ color:var(--teal); }
 }
 .fig .zoom{ color:var(--teal-dark); }
 
+/* 図の拡大表示（JSなし・:target で開閉する）。
+   別タブで画像を開くと戻る手段が無くなるため、同じページの上に重ねる */
+.lightbox{
+  display:none; position:fixed; z-index:200;
+  top:0; left:0; right:0; bottom:0; width:100%;
+  height:100vh; height:100dvh;   /* dvh はスマホのアドレスバー出没に追従する */
+  background:rgba(18,44,41,.94); padding:7vh 5vw 5vh;
+  align-items:center; justify-content:center; text-decoration:none;
+  overflow:auto;
+}
+.lightbox:target{ display:flex; }
+.lightbox img{
+  max-width:100%; max-height:86vh; width:auto;
+  background:#fff; border-radius:3px;
+}
+.lightbox .lightbox-close{
+  position:absolute; top:22px; right:30px; color:#fff;
+  font-size:15px; letter-spacing:.1em; font-family:var(--sans);
+  border:1px solid rgba(255,255,255,.5); border-radius:3px;
+  padding:7px 16px;
+}
+.lightbox .lightbox-close:hover{ background:rgba(255,255,255,.16); }
+@media (max-width:640px){
+  .lightbox{ padding:64px 16px 24px; }
+  .lightbox .lightbox-close{ top:14px; right:14px; }
+}
+
 /* 実績リストの中を性質で割る小見出し（主催／登壇／委員 など） */
 .sub-head{
   font-size:12.5px; font-weight:600; letter-spacing:.18em; color:var(--teal);
