@@ -1,0 +1,7 @@
+# 全ページをクロールしてよい。
+# 2026-09-09〜09-12 は仮URL(advtak.github.io)の検索避けのため Disallow を置いていたが、
+# 独自ドメインへ切り替えたので解除した。ここに Disallow を書き足すと本番が検索から消える。
+User-agent: *
+Allow: /
+
+Sitemap: https://www.pararia.jp/sitemap.xml
