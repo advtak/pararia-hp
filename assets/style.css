@@ -149,6 +149,18 @@ a{ color:var(--teal); }
   letter-spacing:.16em; margin:0 0 40px;
 }
 .lead{ text-align:center; font-size:16px; margin:0 auto 40px; max-width:760px; }
+
+/* ---------------- 日本語の改行 ----------------
+   「〜ありません。」の「ん。」だけが次行に落ちるのを防ぐ。
+   auto-phrase＝文節で折り返す／balance＝行の長さを揃える／pretty＝最終行を1語にしない。
+   いずれも未対応ブラウザでは既定値と同じ挙動になるので、壊れる方向の副作用が無い */
+h1, h2, h3,
+.statement, .section-title, .lead, .page-title{
+  word-break:auto-phrase; text-wrap:balance;
+}
+p, li, dd, dt{ text-wrap:pretty; }
+/* ここで絶対に割らせたくない語句に付ける（auto-phrase 非対応ブラウザ向けの保険） */
+.nobr{ white-space:nowrap; }
 .lead strong{ color:var(--teal-dark); }
 
 /* ---------------- ボタン ---------------- */
@@ -519,6 +531,8 @@ table.price .fee{ font-size:18px; font-weight:700; color:var(--teal-dark); }
   .stats.c3 .stat:last-child{ border-bottom:0; }
   .reclist dl{ grid-template-columns:1fr; gap:8px 0; }
   .deflist dl{ grid-template-columns:1fr; }
+  /* .deflist.wide dl は基本側の詳細度が高く、この指定だけでは負ける。明示して潰す */
+  .deflist.wide dl{ grid-template-columns:1fr; }
   .deflist dt{ padding:14px 16px; }
   .deflist dd{ padding:14px 16px 20px; }
 }
