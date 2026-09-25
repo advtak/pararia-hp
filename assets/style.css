@@ -554,3 +554,11 @@ table.price .fee{ font-size:18px; font-weight:700; color:var(--teal-dark); }
   .hero .biglogo{ margin-bottom:26px; }
   .hero .rule{ margin-bottom:24px; }
 }
+
+/* ---------------- 事例写真（/card） ---------------- */
+.casephotos{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px 24px; }
+.casephotos figure{ margin:0; }
+.casephotos img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block; }
+.casephotos figcaption{ margin-top:11px; font-size:13.5px; line-height:1.85; color:var(--sub); }
+.casephotos figcaption b{ display:block; color:var(--text); font-weight:600; letter-spacing:.06em; margin-bottom:3px; font-size:14px; }
+@media(max-width:700px){ .casephotos{ grid-template-columns:1fr; } }
